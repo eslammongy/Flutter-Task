@@ -1,32 +1,55 @@
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_task/constants/app_assets.dart';
+import 'package:flutter_task/constants/utils/helper.dart';
+import 'package:flutter_task/home/widgets/menu_taps.dart';
+import 'package:flutter_task/home/widgets/mobile_appbar.dart';
 
-class MediumHomeScreen extends StatefulWidget {
+class MediumHomeScreen extends StatelessWidget {
   const MediumHomeScreen({super.key});
 
   @override
-  State<MediumHomeScreen> createState() => _MediumHomeScreenState();
-}
-
-class _MediumHomeScreenState extends State<MediumHomeScreen> {
-  bool isDarkMode = false;
-
-  void toggleTheme() {
-    setState(() {
-      isDarkMode = !isDarkMode;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Column(
-          children: [
-            Text("Egypt"),
-            Text("Cairo", style: TextStyle(fontSize: 16)),
-          ],
+        backgroundColor: Colors.black,
+        titleSpacing: 0,
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              // Logo
+              SvgPicture.asset(
+                AppAssets.logo,
+                height: 30,
+                fit: BoxFit.contain,
+              ),
+              const Spacer(), // Space between logo and menu items
+              const MenuTaps(),
+              buildSvgIconBtn(
+                  iconPath: AppAssets.settingIcon, onPressed: () {}),
+
+              buildSvgIconBtn(
+                  iconPath: AppAssets.notificationIcon, onPressed: () {}),
+              buildVerticalLine(),
+              // Profile Icon
+              Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: Image.asset(AppAssets.user),
+              ),
+            ],
+          ),
         ),
-        centerTitle: true,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(
+              kToolbarHeight - 45), // Height of the bottom line
+          child: Container(
+            color: theme.colorScheme.surfaceTint, // Line color
+            height: 0.3, // Thickness of the line
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

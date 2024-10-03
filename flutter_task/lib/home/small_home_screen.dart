@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/home/widgets/mobile_appbar.dart';
 
-class SmallHomeScreen extends StatefulWidget {
+class SmallHomeScreen extends StatelessWidget {
   const SmallHomeScreen({super.key});
 
   @override
-  State<SmallHomeScreen> createState() => _SmallHomeScreenState();
-}
-
-class _SmallHomeScreenState extends State<SmallHomeScreen> {
-  @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      appBar: MobileAppBar(),
+    );
   }
+
+
 }

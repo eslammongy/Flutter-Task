@@ -20,7 +20,7 @@ class AppThemData {
     primary: Color(0xFFFFC268),
     onPrimary: Colors.black,
     secondary: Color(0xFFEFF3F3),
-    onSecondary: Color(0xFF322942),
+    onSecondary: Colors.white,
     error: Colors.redAccent,
     onError: Colors.white,
     surface: Color(0xFFFAFBFB),

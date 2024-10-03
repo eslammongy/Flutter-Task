@@ -11,6 +11,7 @@ class AdaptiveHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
+    debugPrint("Main Screen Width::${SizeConfig.width}");
     return Scaffold(
       body: AdaptiveLayout(
         mobileLayout: (context) => const SmallHomeScreen(),
