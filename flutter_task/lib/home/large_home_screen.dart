@@ -1,20 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LargeHomeScreen extends StatefulWidget {
+class LargeHomeScreen extends StatelessWidget {
   const LargeHomeScreen({super.key});
-
-  @override
-  State<LargeHomeScreen> createState() => _LargeHomeScreenState();
-}
-
-class _LargeHomeScreenState extends State<LargeHomeScreen> {
-  bool isDarkMode = false;
-
-  void toggleTheme() {
-    setState(() {
-      isDarkMode = !isDarkMode;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
