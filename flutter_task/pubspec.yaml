@@ -35,11 +35,12 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/
+    - assets/images/svg/
+    - assets/images/png/
     - assets/fonts/
 
   fonts:
     - family: Inter
       fonts:
-        - asset: fonts/Inter_Regular.ttf
-        - asset: fonts/Inter_Medium.ttf
+        - asset: assets/fonts/Inter_Regular.ttf
+        - asset: assets/fonts/Inter_Medium.ttf

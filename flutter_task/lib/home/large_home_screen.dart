@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_task/constants/app_assets.dart';
 
 class LargeHomeScreen extends StatelessWidget {
   const LargeHomeScreen({super.key});
@@ -6,16 +8,7 @@ class LargeHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Column(
-          children: [
-            Text("Egypt"),
-            Text("Cairo", style: TextStyle(fontSize: 16)),
-          ],
-        ),
-
-        centerTitle: true,
-      ),
+      appBar: const CustomAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -30,7 +23,6 @@ class LargeHomeScreen extends StatelessWidget {
               ),
               child: const Column(
                 children: [
-                
                   SizedBox(height: 10),
                   Text('24°C',
                       style: TextStyle(
@@ -42,7 +34,6 @@ class LargeHomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             // Grid for other weather data
-         
           ],
         ),
       ),
@@ -50,37 +41,74 @@ class LargeHomeScreen extends StatelessWidget {
   }
 }
 
-class InfoCard extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final String value;
-
-  const InfoCard(
-      {super.key,
-      required this.icon,
-      required this.title,
-      required this.value});
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.blueAccent.withOpacity(0.2),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+    return AppBar(
+      backgroundColor: Colors.black, // Black background color
+      titleSpacing: 0, // No spacing for the logo
+      title: Row(
         children: [
-          Icon(icon, size: 40),
-          const SizedBox(height: 10),
-          Text(title,
-              style:
-                  const TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
-          const SizedBox(height: 5),
-          Text(value, style: const TextStyle(fontSize: 16)),
+          // Logo
+          const Padding(
+            padding: EdgeInsets.only(left: 16.0),
+            child: Text(
+              'logo',
+              style: TextStyle(
+                color: Colors.orangeAccent,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          const Spacer(), // Space between logo and menu items
+
+          // Menu items
+          TextButton(
+            onPressed: () {},
+            child: const Text('Items', style: TextStyle(color: Colors.white)),
+          ),
+          TextButton(
+            onPressed: () {},
+            child: const Text('Pricing', style: TextStyle(color: Colors.white)),
+          ),
+          TextButton(
+            onPressed: () {},
+            child: const Text('Info', style: TextStyle(color: Colors.white)),
+          ),
+          TextButton(
+            onPressed: () {},
+            child: const Text('Tasks', style: TextStyle(color: Colors.white)),
+          ),
+          TextButton(
+            onPressed: () {},
+            child:
+                const Text('Analytics', style: TextStyle(color: Colors.white)),
+          ),
+
+          const Spacer(), // Space between menu items and icons
+
+          // Icons
+          IconButton(
+            icon: SvgPicture.asset(AppAssets.settingIcon),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: SvgPicture.asset(AppAssets.notificationIcon),
+            onPressed: () {},
+          ),
+          // Profile Icon
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: Image.asset(AppAssets.user),
+          ),
         ],
       ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
