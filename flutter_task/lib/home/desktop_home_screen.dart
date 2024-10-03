@@ -7,7 +7,7 @@ class LargeHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: MainAppBar(),
+      appBar: LargeAppBar(),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(

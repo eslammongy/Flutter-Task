@@ -1,6 +1,6 @@
-import 'large_home_screen.dart';
-import 'small_home_screen.dart';
-import 'medium_home_screen.dart';
+import 'mobile_home_screen.dart';
+import 'tablet_home_screen.dart';
+import 'desktop_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_task/home/adaptive_layout.dart';
 import 'package:flutter_task/constants/utils/size_config.dart';
@@ -11,7 +11,6 @@ class AdaptiveHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
-    debugPrint("Main Screen Width::${SizeConfig.width}");
     return Scaffold(
       body: AdaptiveLayout(
         mobileLayout: (context) => const SmallHomeScreen(),

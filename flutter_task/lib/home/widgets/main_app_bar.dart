@@ -6,8 +6,8 @@ import 'package:flutter_task/home/widgets/menu_taps.dart';
 import 'package:flutter_task/constants/utils/size_config.dart';
 import 'package:flutter_task/constants/theme/app_text_styles.dart';
 
-class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MainAppBar({super.key});
+class LargeAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const LargeAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,8 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
               padding: const EdgeInsets.only(right: 16.0),
               child: Image.asset(AppAssets.user),
             ),
-            if (SizeConfig.width > 815) _buildUserProfileBtn(theme)
+            if (SizeConfig.width > SizeConfig.tablet)
+              _buildUserProfileBtn(theme)
           ],
         ),
       ),
