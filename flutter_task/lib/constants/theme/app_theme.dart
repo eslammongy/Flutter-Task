@@ -8,12 +8,12 @@ class AppThemData {
 
   static ThemeData themeData(ColorScheme colorScheme, Color focusColor) {
     return ThemeData(
-        colorScheme: colorScheme,
-        canvasColor: colorScheme.surface,
-        scaffoldBackgroundColor: colorScheme.surface,
-        highlightColor: Colors.transparent,
-        cardColor: colorScheme.onSurface,
-        focusColor: focusColor);
+      useMaterial3: true,
+      colorScheme: colorScheme,
+      canvasColor: colorScheme.surface,
+      cardColor: colorScheme.surfaceContainer,
+      scaffoldBackgroundColor: colorScheme.surface,
+    );
   }
 
   static const ColorScheme lightColorScheme = ColorScheme(
@@ -26,7 +26,8 @@ class AppThemData {
     surface: Color(0xFFFAFBFB),
     surfaceDim: Colors.white,
     surfaceTint: Color(0xff999999),
-    onSurface: Color(0xFF241E30),
+    onSurface: Color(0xFF070707),
+    surfaceContainer: Color.fromARGB(255, 215, 215, 215),
     brightness: Brightness.light,
   );
 
@@ -34,13 +35,14 @@ class AppThemData {
     primary: Color(0xFFFFC268),
     secondary: Color(0xFF854422),
     surface: Color(0xFF000000),
-    onSurface: Color(0xff262626),
+    onSurface: Color(0xFFFFFFFF),
     error: Colors.red,
     onError: Colors.white,
     onPrimary: Colors.white,
     onSecondary: Colors.white,
     surfaceDim: Colors.white,
     surfaceTint: Color(0xff999999),
+    surfaceContainer: Color(0xff171717),
     brightness: Brightness.dark,
   );
 }

@@ -1,20 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/constants/utils/helper.dart';
+import 'package:flutter_task/home/widgets/item_card.dart';
 import 'package:flutter_task/home/widgets/main_app_bar.dart';
+import 'package:flutter_task/constants/utils/size_config.dart';
 
 class LargeHomeScreen extends StatelessWidget {
   const LargeHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: LargeAppBar(),
+    final width = MediaQuery.sizeOf(context).width;
+    return Scaffold(
+      appBar: const LargeAppBar(),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [],
+        padding: const EdgeInsets.all(16.0),
+        child: GridView.builder(
+          physics: const BouncingScrollPhysics(),
+          itemCount: 8,
+          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 15),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: setCrossAxisCount(width),
+            mainAxisExtent: 360,
+            crossAxisSpacing: 12.0,
+          ),
+          itemBuilder: (_, index) => const ItemCard(),
         ),
       ),
     );
   }
+
+
 }

@@ -40,7 +40,7 @@ class LargeAppBar extends StatelessWidget implements PreferredSizeWidget {
               padding: const EdgeInsets.only(right: 16.0),
               child: Image.asset(AppAssets.user),
             ),
-            if (SizeConfig.width > SizeConfig.tablet)
+            if (SizeConfig.width > SizeConfig.desktop)
               _buildUserProfileBtn(theme)
           ],
         ),

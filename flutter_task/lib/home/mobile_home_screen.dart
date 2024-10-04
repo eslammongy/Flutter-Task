@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/home/widgets/item_card.dart';
 import 'package:flutter_task/home/widgets/mobile_appbar.dart';
 
 class SmallHomeScreen extends StatelessWidget {
@@ -6,10 +7,15 @@ class SmallHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: MobileAppBar(),
+    return Scaffold(
+      appBar: const MobileAppBar(),
+      body: ListView.builder(
+        itemCount: 5,
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        itemBuilder: (context, index) {
+          return const ItemCard();
+        },
+      ),
     );
   }
-
-
 }
