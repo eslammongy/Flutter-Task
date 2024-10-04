@@ -16,13 +16,6 @@ class MobileAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            // Logo
-            IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.menu,
-                  color: theme.colorScheme.onSecondary,
-                )),
             const Spacer(), // Space between logo and menu items
             buildSvgIconBtn(iconPath: AppAssets.settingIcon, onPressed: () {}),
 

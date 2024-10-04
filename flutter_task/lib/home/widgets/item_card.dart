@@ -77,10 +77,10 @@ class ItemCard extends StatelessWidget {
   }
 
   double setTopPadding(double width) {
-    if (width < SizeConfig.tablet) {
+    if (width <= SizeConfig.mobile) {
       return 70;
     } else if (width < SizeConfig.desktop) {
-      return 40;
+      return 50;
     } else {
       return 50;
     }
