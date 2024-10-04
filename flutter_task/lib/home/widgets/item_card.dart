@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/constants/app_assets.dart';
+import 'package:flutter_task/constants/utils/helper.dart';
 import 'package:flutter_task/home/widgets/extra_card_info.dart';
+import 'package:flutter_task/home/widgets/pending_approval_widget.dart';
 
 class ItemCard extends StatelessWidget {
-  const ItemCard({super.key});
+  const ItemCard({
+    super.key,
+    required this.topPadding,
+    required this.top,
+    this.isSmallView = false,
+  });
+  final double topPadding;
+  final double top;
+  final bool isSmallView;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
     return Card(
       color: theme.colorScheme.surfaceContainer,
       shape: RoundedRectangleBorder(
@@ -17,7 +28,7 @@ class ItemCard extends StatelessWidget {
       elevation: 4,
       clipBehavior: Clip.antiAlias,
       child: SizedBox(
-        height: 362,
+        height: 360,
         child: Stack(
           children: [
             Image.asset(
@@ -36,38 +47,29 @@ class ItemCard extends StatelessWidget {
                       size: 16, color: theme.colorScheme.onSecondary)),
             ),
             Positioned.fill(
-              top: 140,
+              top: top,
               child: Container(
-                padding: const EdgeInsets.only(top: 30),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color:
-                          theme.colorScheme.surfaceContainer.withOpacity(0.6),
-                      offset: const Offset(0, -8),
-                      blurRadius: 4,
-                      spreadRadius: 20,
-                    ),
-                    BoxShadow(
-                      color:
-                          theme.colorScheme.surfaceContainer.withOpacity(0.8),
-                      offset: const Offset(0, 26),
-                      blurRadius: 8,
-                      spreadRadius: 8,
-                    ),
-                  ],
-                ),
+                padding: EdgeInsets.only(top: topPadding),
+                decoration: boxDecoration(theme),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: theme.colorScheme.surfaceContainer,
                   ),
-                  child: const Padding(
-                    padding: EdgeInsets.all(10),
-                    child: ExtraCardInfo(),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: ExtraCardInfo(
+                      isSmallView: isSmallView,
+                    ),
                   ),
                 ),
               ),
             ),
+            if (!isSmallView) ...[
+              Positioned(
+                top: top - 10,
+                child: const PendingApprovalWidget(),
+              ),
+            ],
           ],
         ),
       ),

@@ -19,7 +19,7 @@ class AppThemData {
   static const ColorScheme lightColorScheme = ColorScheme(
     primary: Color(0xFFFFC268),
     onPrimary: Colors.black,
-    secondary: Color(0xFFEFF3F3),
+    secondary: Color(0xffC25F30),
     onSecondary: Colors.white,
     error: Colors.redAccent,
     onError: Colors.white,
@@ -33,7 +33,7 @@ class AppThemData {
 
   static const ColorScheme darkColorScheme = ColorScheme(
     primary: Color(0xFFFFC268),
-    secondary: Color(0xFF854422),
+    secondary: Color(0xffC25F30),
     surface: Color(0xFF000000),
     onSurface: Color(0xFFFFFFFF),
     error: Colors.red,

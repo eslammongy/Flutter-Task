@@ -23,7 +23,6 @@ abstract class AppTextStyle {
     return const TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w400,
-      height: 0.26,
       fontFamily: commonFM,
     );
   }

@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/constants/utils/size_config.dart';
 import 'package:flutter_task/home/widgets/ellipse_list_view.dart';
 import 'package:flutter_task/constants/theme/app_text_styles.dart';
+import 'package:flutter_task/home/widgets/pending_approval_widget.dart';
 
 class ExtraCardInfo extends StatelessWidget {
-  const ExtraCardInfo({super.key});
+  const ExtraCardInfo({
+    super.key,
+    this.isSmallView = false,
+  });
+  final bool isSmallView;
 
   @override
   Widget build(BuildContext context) {
@@ -12,43 +18,22 @@ class ExtraCardInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Card(
-          color: const Color(0xffC25F30).withOpacity(0.1),
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              side: BorderSide(color: Color(0xffC25F30))),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-            child: InkWell(
-              onTap: () {},
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'Pending Approval',
-                    style: AppTextStyle.styleRegular14,
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  const Icon(
-                    Icons.keyboard_arrow_down_rounded,
-                    size: 18,
-                  ),
-                ],
-              ),
-            ),
+        if (isSmallView) ...[
+          const PendingApprovalWidget(),
+        ],
+        if (SizeConfig.width < SizeConfig.desktop) ...[
+          const SizedBox(
+            height: 15,
           ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
+        ],
         Text(
           'Item title',
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
           style: AppTextStyle.styleRegular18,
         ),
         const SizedBox(
-          height: 15,
+          height: 5,
         ),
         Row(
           children: [
@@ -69,22 +54,26 @@ class ExtraCardInfo extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        Divider(
+        const Divider(
           height: 2,
           thickness: 1,
-          color: theme.colorScheme.surfaceTint,
+          color: Color(0xff262626),
         ),
         const SizedBox(
-          height: 15,
+          height: 20,
         ),
-        const Row(
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(width: 16),
+            const EllipseListView(shouldDisplayMoreBtn: true),
+            const SizedBox(width: 16),
             Text(
               '4 unfinished tasks',
-              style: TextStyle(color: Colors.white),
+              style: AppTextStyle.styleRegular12.copyWith(
+                color: theme.colorScheme.surfaceTint,
+              ),
             ),
-            //  EllipseListView(shouldDisplayMoreBtn: true)
           ],
         ),
       ],

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task/constants/utils/helper.dart';
 import 'package:flutter_task/home/widgets/item_card.dart';
 import 'package:flutter_task/home/widgets/main_app_bar.dart';
-import 'package:flutter_task/constants/utils/size_config.dart';
 
 class LargeHomeScreen extends StatelessWidget {
   const LargeHomeScreen({super.key});
@@ -23,11 +22,12 @@ class LargeHomeScreen extends StatelessWidget {
             mainAxisExtent: 360,
             crossAxisSpacing: 12.0,
           ),
-          itemBuilder: (_, index) => const ItemCard(),
+          itemBuilder: (_, index) => const ItemCard(
+            top: 160,
+            topPadding: 160 / 6,
+          ),
         ),
       ),
     );
   }
-
-
 }

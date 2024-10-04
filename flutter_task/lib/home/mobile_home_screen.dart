@@ -13,7 +13,11 @@ class SmallHomeScreen extends StatelessWidget {
         itemCount: 5,
         padding: const EdgeInsets.symmetric(horizontal: 24),
         itemBuilder: (context, index) {
-          return const ItemCard();
+          return const ItemCard(
+            top: 140,
+            topPadding: 160 / 6,
+            isSmallView: true,
+          );
         },
       ),
     );

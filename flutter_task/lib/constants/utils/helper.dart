@@ -30,3 +30,20 @@ int setCrossAxisCount(double width) {
     return 4;
   }
 }
+
+boxDecoration(ThemeData theme) => BoxDecoration(
+      boxShadow: [
+        BoxShadow(
+          color: theme.colorScheme.surfaceContainer.withOpacity(0.6),
+          offset: const Offset(0, -8),
+          blurRadius: 8,
+          spreadRadius: 15,
+        ),
+        BoxShadow(
+          color: theme.colorScheme.surfaceContainer.withOpacity(0.8),
+          offset: const Offset(0, 25),
+          blurRadius: 8,
+          spreadRadius: 8,
+        ),
+      ],
+    );

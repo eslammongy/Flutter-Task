@@ -9,8 +9,8 @@ abstract class AppAssets {
   static const String palmTreesPng = 'assets/images/png/palm_trees.png';
   static const String seaSkyPng = 'assets/images/png/sea_sky.png';
   static const String skyScraperPng = 'assets/images/png/skyscraper.png';
-  static const String ellipse1 = 'assets/images/png/ellipse1.png';
-  static const String ellipse2 = 'assets/images/png/ellipse2.png';
-  static const String ellipse3 = 'assets/images/png/ellipse3.png';
+  static const String ellipse1 = 'assets/images/svg/test.svg';
+  static const String ellipse2 = 'assets/images/svg/ellipse2.svg';
+  static const String ellipse3 = 'assets/images/svg/ellipse3.svg';
   static const String user = 'assets/images/png/user_img.png';
 }
