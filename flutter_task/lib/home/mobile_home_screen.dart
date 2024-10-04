@@ -12,10 +12,9 @@ class SmallHomeScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: 5,
         padding: const EdgeInsets.symmetric(horizontal: 24),
+        itemExtent: 360,
         itemBuilder: (context, index) {
           return const ItemCard(
-            top: 140,
-            topPadding: 160 / 6,
             isSmallView: true,
           );
         },

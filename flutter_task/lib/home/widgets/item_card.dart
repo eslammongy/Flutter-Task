@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/constants/app_assets.dart';
 import 'package:flutter_task/constants/utils/helper.dart';
+import 'package:flutter_task/constants/utils/size_config.dart';
 import 'package:flutter_task/home/widgets/extra_card_info.dart';
 import 'package:flutter_task/home/widgets/pending_approval_widget.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({
     super.key,
-    required this.topPadding,
-    required this.top,
     this.isSmallView = false,
   });
-  final double topPadding;
-  final double top;
+
   final bool isSmallView;
 
   @override
@@ -31,10 +29,16 @@ class ItemCard extends StatelessWidget {
         height: 360,
         child: Stack(
           children: [
-            Image.asset(
-              AppAssets.palmTreesPng, // replace with your image URL
-              fit: BoxFit.cover,
-              width: double.infinity,
+            Positioned(
+              top: 0,
+              right: 0,
+              left: 0,
+              height: 180,
+              child: Image.asset(
+                AppAssets.palmTreesPng, // replace with your image URL
+                fit: BoxFit.cover,
+                width: double.infinity,
+              ),
             ),
             Positioned(
               top: 16,
@@ -47,32 +51,38 @@ class ItemCard extends StatelessWidget {
                       size: 16, color: theme.colorScheme.onSecondary)),
             ),
             Positioned.fill(
-              top: top,
+              top: SizeConfig.width < SizeConfig.mobile ? 135 : 160,
               child: Container(
-                padding: EdgeInsets.only(top: topPadding),
+                padding: EdgeInsets.only(top: setTopPadding(SizeConfig.width)),
                 decoration: boxDecoration(theme),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: theme.colorScheme.surfaceContainer,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: ExtraCardInfo(
-                      isSmallView: isSmallView,
-                    ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(12),
+                    child: ExtraCardInfo(),
                   ),
                 ),
               ),
             ),
-            if (!isSmallView) ...[
-              Positioned(
-                top: top - 10,
-                child: const PendingApprovalWidget(),
-              ),
-            ],
+            Positioned(
+              top: SizeConfig.width < SizeConfig.mobile ? 170 : 160,
+              child: const PendingApprovalWidget(),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  double setTopPadding(double width) {
+    if (width < SizeConfig.tablet) {
+      return 70;
+    } else if (width < SizeConfig.desktop) {
+      return 40;
+    } else {
+      return 50;
+    }
   }
 }

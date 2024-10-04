@@ -22,10 +22,7 @@ class LargeHomeScreen extends StatelessWidget {
             mainAxisExtent: 360,
             crossAxisSpacing: 12.0,
           ),
-          itemBuilder: (_, index) => const ItemCard(
-            top: 160,
-            topPadding: 160 / 6,
-          ),
+          itemBuilder: (_, index) => const ItemCard(),
         ),
       ),
     );

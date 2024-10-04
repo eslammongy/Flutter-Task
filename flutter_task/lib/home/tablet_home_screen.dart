@@ -22,10 +22,7 @@ class MediumHomeScreen extends StatelessWidget {
             mainAxisExtent: 360,
             crossAxisSpacing: 12.0,
           ),
-          itemBuilder: (_, index) => const ItemCard(
-            top: 170,
-            topPadding: 170 / 10,
-          ),
+          itemBuilder: (_, index) => const ItemCard(),
         ),
       ),
     );

@@ -34,16 +34,24 @@ int setCrossAxisCount(double width) {
 boxDecoration(ThemeData theme) => BoxDecoration(
       boxShadow: [
         BoxShadow(
-          color: theme.colorScheme.surfaceContainer.withOpacity(0.6),
+          color: theme.colorScheme.surfaceContainer.withOpacity(0.4),
           offset: const Offset(0, -8),
-          blurRadius: 8,
-          spreadRadius: 15,
+          blurRadius: 2,
+          spreadRadius: 12,
         ),
         BoxShadow(
-          color: theme.colorScheme.surfaceContainer.withOpacity(0.8),
-          offset: const Offset(0, 25),
-          blurRadius: 8,
-          spreadRadius: 8,
+          color: theme.colorScheme.surfaceContainer.withOpacity(0.85),
+          offset: const Offset(0, 18),
+          blurRadius: 12,
+          spreadRadius: 16,
         ),
       ],
     );
+
+get textShadow => [
+      const Shadow(
+        offset: Offset(4.0, 4.0), // Position of shadow (x, y)
+        blurRadius: 10.0, // Softness of the shadow
+        color: Color(0xFF000000), // Shadow color
+      ),
+    ];

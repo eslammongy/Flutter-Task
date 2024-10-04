@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task/constants/utils/size_config.dart';
+import 'package:flutter_task/constants/utils/helper.dart';
 import 'package:flutter_task/home/widgets/ellipse_list_view.dart';
 import 'package:flutter_task/constants/theme/app_text_styles.dart';
-import 'package:flutter_task/home/widgets/pending_approval_widget.dart';
 
 class ExtraCardInfo extends StatelessWidget {
   const ExtraCardInfo({
     super.key,
-    this.isSmallView = false,
   });
-  final bool isSmallView;
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +15,11 @@ class ExtraCardInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        if (isSmallView) ...[
-          const PendingApprovalWidget(),
-        ],
-        if (SizeConfig.width < SizeConfig.desktop) ...[
-          const SizedBox(
-            height: 15,
-          ),
-        ],
         Text(
           'Item title',
           overflow: TextOverflow.ellipsis,
           maxLines: 1,
-          style: AppTextStyle.styleRegular18,
+          style: AppTextStyle.styleRegular18.copyWith(shadows: textShadow),
         ),
         const SizedBox(
           height: 5,
