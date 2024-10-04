@@ -34,16 +34,10 @@ int setCrossAxisCount(double width) {
 boxDecoration(ThemeData theme) => BoxDecoration(
       boxShadow: [
         BoxShadow(
-          color: theme.colorScheme.surfaceContainer.withOpacity(0.4),
-          offset: const Offset(0, -8),
-          blurRadius: 2,
-          spreadRadius: 12,
-        ),
-        BoxShadow(
-          color: theme.colorScheme.surfaceContainer.withOpacity(0.85),
-          offset: const Offset(0, 18),
-          blurRadius: 12,
-          spreadRadius: 16,
+          color: theme.colorScheme.surfaceContainer.withOpacity(0.9),
+          offset: const Offset(0, 14),
+          blurRadius: 16,
+          spreadRadius: 18,
         ),
       ],
     );

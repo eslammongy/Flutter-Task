@@ -20,10 +20,14 @@ class MobileAppBar extends StatelessWidget implements PreferredSizeWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SvgPicture.asset(
-              AppAssets.logo,
-              height: 40,
-              fit: BoxFit.contain,
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SvgPicture.asset(
+                AppAssets.logo,
+                height: 40,
+                alignment: Alignment.bottomLeft,
+                fit: BoxFit.cover,
+              ),
             ),
             const Spacer(), // Space between logo and menu items
             buildSvgIconBtn(iconPath: AppAssets.settingIcon, onPressed: () {}),

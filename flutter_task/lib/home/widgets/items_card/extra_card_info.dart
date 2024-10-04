@@ -1,4 +1,6 @@
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_task/constants/app_assets.dart';
 import 'package:flutter_task/constants/utils/helper.dart';
 import 'package:flutter_task/constants/theme/app_text_styles.dart';
 import 'package:flutter_task/home/widgets/items_card/ellipse_list_view.dart';
@@ -26,10 +28,9 @@ class ExtraCardInfo extends StatelessWidget {
         ),
         Row(
           children: [
-            Icon(
-              Icons.calendar_month_outlined,
-              color: theme.colorScheme.surfaceTint,
-              size: 16,
+            SvgPicture.asset(
+              AppAssets.calender,
+              width: 18,
             ),
             const SizedBox(width: 8),
             Text(

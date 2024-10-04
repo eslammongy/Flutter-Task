@@ -1,6 +1,6 @@
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_task/constants/app_assets.dart';
-import 'package:flutter_task/constants/utils/helper.dart';
 import 'package:flutter_task/constants/utils/size_config.dart';
 import 'package:flutter_task/home/widgets/items_card/extra_card_info.dart';
 import 'package:flutter_task/home/widgets/items_card/pending_approval_widget.dart';
@@ -8,10 +8,10 @@ import 'package:flutter_task/home/widgets/items_card/pending_approval_widget.dar
 class ItemCard extends StatelessWidget {
   const ItemCard({
     super.key,
-    this.isSmallView = false,
+    required this.imgPath,
   });
 
-  final bool isSmallView;
+  final String imgPath;
 
   @override
   Widget build(BuildContext context) {
@@ -35,39 +35,62 @@ class ItemCard extends StatelessWidget {
               left: 0,
               height: 180,
               child: Image.asset(
-                AppAssets.palmTreesPng, // replace with your image URL
+                imgPath, // replace with your image URL
                 fit: BoxFit.cover,
                 width: double.infinity,
               ),
             ),
             Positioned(
-              top: 16,
-              right: 16,
-              width: 34,
-              height: 34,
+              top: SizeConfig.width < SizeConfig.mobile ? 130 : 140,
+              right: 0,
+              left: 0,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    stops: const [0.35, 1.0],
+                    colors: [
+                      theme.colorScheme.surfaceContainer,
+                      theme.colorScheme.surfaceContainer.withOpacity(0.5),
+                    ],
+                  ),
+                ),
+                child: const SizedBox(
+                  height: 70,
+                  width: double.infinity,
+                ),
+              ),
+            ),
+            Positioned(
+              top: SizeConfig.width < SizeConfig.mobile ? 135 : 160,
+              right: 0,
+              width: 0,
+              height: 40,
               child: Card(
-                  color: theme.colorScheme.surfaceContainer.withOpacity(0.6),
-                  child: Icon(Icons.more_horiz_sharp,
-                      size: 16, color: theme.colorScheme.onSecondary)),
+                color: theme.colorScheme.primary,
+                shape: const CircleBorder(),
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: SvgPicture.asset(
+                    AppAssets.moreHorizontal,
+                    width: 16,
+                  ),
+                ),
+              ),
             ),
             Positioned.fill(
               top: SizeConfig.width < SizeConfig.mobile ? 135 : 160,
               child: Container(
                 padding: EdgeInsets.only(top: setTopPadding(SizeConfig.width)),
-                decoration: boxDecoration(theme),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.surfaceContainer,
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.all(12),
-                    child: ExtraCardInfo(),
-                  ),
+                child: const Padding(
+                  padding: EdgeInsets.all(12),
+                  child: ExtraCardInfo(),
                 ),
               ),
             ),
             Positioned(
-              top: SizeConfig.width < SizeConfig.mobile ? 170 : 160,
+              top: SizeConfig.width < SizeConfig.mobile ? 165 : 160,
               child: const PendingApprovalWidget(),
             ),
           ],
@@ -78,7 +101,7 @@ class ItemCard extends StatelessWidget {
 
   double setTopPadding(double width) {
     if (width <= SizeConfig.mobile) {
-      return 70;
+      return 75;
     } else if (width < SizeConfig.desktop) {
       return 50;
     } else {

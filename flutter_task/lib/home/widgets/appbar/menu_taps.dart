@@ -1,65 +1,63 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task/constants/theme/app_text_styles.dart';
+import 'package:flutter_task/home/widgets/appbar/menu_tap_item.dart';
 
-class MenuTaps extends StatelessWidget {
+class MenuTaps extends StatefulWidget {
   const MenuTaps({super.key});
 
   @override
+  State<MenuTaps> createState() => _MenuTapsState();
+}
+
+class _MenuTapsState extends State<MenuTaps> {
+  int selectedTap = 0;
+  @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        _buildTextButton(
-          theme,
+        MenuTapItem(
           text: 'Items',
-          onPressed: () {},
+          isSelected: selectedTap == 0,
+          onPressed: () {
+            _selectMenuTap(0);
+          },
         ),
-        _buildTextButton(
-          theme,
+        MenuTapItem(
           text: 'Pricing',
-          onPressed: () {},
+          isSelected: selectedTap == 1,
+          onPressed: () {
+            _selectMenuTap(1);
+          },
         ),
-        _buildTextButton(
-          theme,
+        MenuTapItem(
           text: 'Info',
-          onPressed: () {},
+          isSelected: selectedTap == 2,
+          onPressed: () {
+            _selectMenuTap(2);
+          },
         ),
-        _buildTextButton(
-          theme,
+        MenuTapItem(
           text: 'Tasks',
-          onPressed: () {},
+          isSelected: selectedTap == 3,
+          onPressed: () {
+            _selectMenuTap(3);
+          },
         ),
-        _buildTextButton(
-          theme,
+        MenuTapItem(
           text: 'Analytics',
-          onPressed: () {},
+          isSelected: selectedTap == 4,
+          onPressed: () {
+            _selectMenuTap(4);
+          },
         ),
       ],
     );
   }
 
-  Widget _buildTextButton(
-    ThemeData theme, {
-    required String text,
-    required void Function()? onPressed,
-  }) {
-    return TextButton(
-      onPressed: onPressed,
-      style: ButtonStyle(
-        alignment: Alignment.center, // <-- had to set alignment
-        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
-          const EdgeInsets.symmetric(
-              horizontal: 16), // <-- had to set padding to zero
-        ),
-      ),
-      child: Text(
-        text,
-        textAlign: TextAlign.center,
-        style: AppTextStyle.styleRegular14
-            .copyWith(color: theme.colorScheme.surfaceTint),
-      ),
-    );
+  void _selectMenuTap(int index) {
+    setState(() {
+      selectedTap = index;
+    });
   }
 }

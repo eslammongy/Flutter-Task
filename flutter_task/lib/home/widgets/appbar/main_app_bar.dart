@@ -15,16 +15,20 @@ class LargeAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.black,
       titleSpacing: 0,
+      centerTitle: true,
       title: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 0),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Logo
-            SvgPicture.asset(
-              AppAssets.logo,
-              height: 40,
-              fit: BoxFit.contain,
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SvgPicture.asset(
+                AppAssets.logo,
+                height: 40,
+                alignment: Alignment.bottomLeft,
+                fit: BoxFit.cover,
+              ),
             ),
             const Spacer(), // Space between logo and menu items
             const MenuTaps(),

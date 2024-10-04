@@ -1,4 +1,3 @@
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_task/constants/app_assets.dart';
 import 'package:flutter_task/constants/theme/app_text_styles.dart';
@@ -71,11 +70,14 @@ class EllipseListView extends StatelessWidget {
   Widget buildAvatar(String imagePath) {
     return Align(
       widthFactor: 0.5,
-      child: SvgPicture.asset(
-        imagePath,
-        width: 24, // Set width
-        height: 24, // Set height
-        fit: BoxFit.contain, // Optional, fits the image within the size
+      child: Padding(
+        padding: const EdgeInsets.only(top: 4.0),
+        child: Image.asset(
+          imagePath,
+          width: 26, // Set width
+          height: 26, // Set height
+          fit: BoxFit.cover, // Optional, fits the image within the size
+        ),
       ),
     );
   }

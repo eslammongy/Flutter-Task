@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/home/desktop_home_screen.dart';
 import 'package:flutter_task/home/widgets/mobile_drawer.dart';
 import 'package:flutter_task/home/widgets/main_top_section.dart';
 import 'package:flutter_task/home/widgets/items_card/item_card.dart';
@@ -22,11 +23,11 @@ class MobileHomeScreen extends StatelessWidget {
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 padding: EdgeInsets.zero,
-                itemCount: 5,
+                itemCount: itemsImages.length,
                 itemExtent: 360,
                 itemBuilder: (context, index) {
-                  return const ItemCard(
-                    isSmallView: true,
+                  return ItemCard(
+                    imgPath: itemsImages[index],
                   );
                 },
               ),

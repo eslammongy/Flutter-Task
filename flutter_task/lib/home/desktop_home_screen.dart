@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/constants/app_assets.dart';
 import 'package:flutter_task/constants/utils/helper.dart';
 import 'package:flutter_task/home/widgets/main_top_section.dart';
 import 'package:flutter_task/home/widgets/appbar/main_app_bar.dart';
 import 'package:flutter_task/home/widgets/items_card/item_card.dart';
+
+const itemsImages = [
+  AppAssets.skyScraperPng,
+  AppAssets.palmTreesPng,
+  AppAssets.seaSkyPng,
+  AppAssets.skyScraperPng,
+  AppAssets.palmTreesPng,
+  AppAssets.seaSkyPng,
+  AppAssets.skyScraperPng,
+  AppAssets.palmTreesPng,
+  AppAssets.seaSkyPng,
+];
 
 class DesktopHomeScreen extends StatelessWidget {
   const DesktopHomeScreen({super.key});
@@ -21,14 +34,16 @@ class DesktopHomeScreen extends StatelessWidget {
             Expanded(
               child: GridView.builder(
                 physics: const BouncingScrollPhysics(),
-                itemCount: 8,
+                itemCount: itemsImages.length,
                 padding: EdgeInsets.zero,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: setCrossAxisCount(width),
                   mainAxisExtent: 360,
                   crossAxisSpacing: 12.0,
                 ),
-                itemBuilder: (_, index) => const ItemCard(),
+                itemBuilder: (_, index) => ItemCard(
+                  imgPath: itemsImages[index],
+                ),
               ),
             ),
           ],
