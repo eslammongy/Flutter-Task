@@ -13,9 +13,9 @@ class AdaptiveHomeScreen extends StatelessWidget {
     SizeConfig.init(context);
     return Scaffold(
       body: AdaptiveLayout(
-        mobileLayout: (context) => const SmallHomeScreen(),
-        tabletLayout: (context) => const MediumHomeScreen(),
-        desktopLayout: (context) => const LargeHomeScreen(),
+        mobileLayout: (context) => const MobileHomeScreen(),
+        tabletLayout: (context) => const TabletHomeScreen(),
+        desktopLayout: (context) => const DesktopHomeScreen(),
       ),
     );
   }

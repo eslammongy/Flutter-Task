@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task/constants/app_assets.dart';
 import 'package:flutter_task/constants/utils/helper.dart';
 import 'package:flutter_task/constants/utils/size_config.dart';
-import 'package:flutter_task/home/widgets/extra_card_info.dart';
-import 'package:flutter_task/home/widgets/pending_approval_widget.dart';
+import 'package:flutter_task/home/widgets/items_card/extra_card_info.dart';
+import 'package:flutter_task/home/widgets/items_card/pending_approval_widget.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({

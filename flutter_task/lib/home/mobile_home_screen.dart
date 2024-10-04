@@ -1,67 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task/home/widgets/item_card.dart';
-import 'package:flutter_task/home/widgets/mobile_appbar.dart';
+import 'package:flutter_task/home/widgets/mobile_drawer.dart';
+import 'package:flutter_task/home/widgets/main_top_section.dart';
+import 'package:flutter_task/home/widgets/items_card/item_card.dart';
+import 'package:flutter_task/home/widgets/appbar/mobile_appbar.dart';
 
-class SmallHomeScreen extends StatelessWidget {
-  const SmallHomeScreen({super.key});
+class MobileHomeScreen extends StatelessWidget {
+  const MobileHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MobileAppBar(),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
+      drawer: const MobileDrawer(),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            const MainTopSection(),
+            const SizedBox(height: 20.0),
+            Expanded(
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                padding: EdgeInsets.zero,
+                itemCount: 5,
+                itemExtent: 360,
+                itemBuilder: (context, index) {
+                  return const ItemCard(
+                    isSmallView: true,
+                  );
+                },
               ),
-              child: Text(
-                'Drawer Header',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Home'),
-              onTap: () {
-                // Close the drawer
-                Navigator.pop(context);
-                // Navigate to Home screen (or keep user on the home screen)
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
-              onTap: () {
-                // Close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.contact_page),
-              title: const Text('Contact Us'),
-              onTap: () {
-                // Close the drawer
-                Navigator.pop(context);
-              },
             ),
           ],
         ),
-      ),
-      body: ListView.builder(
-        itemCount: 5,
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        itemExtent: 360,
-        itemBuilder: (context, index) {
-          return const ItemCard(
-            isSmallView: true,
-          );
-        },
       ),
     );
   }

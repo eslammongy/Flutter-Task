@@ -2,8 +2,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_task/constants/app_assets.dart';
 import 'package:flutter_task/constants/utils/helper.dart';
-import 'package:flutter_task/home/widgets/menu_taps.dart';
 import 'package:flutter_task/constants/utils/size_config.dart';
+import 'package:flutter_task/home/widgets/appbar/menu_taps.dart';
 import 'package:flutter_task/constants/theme/app_text_styles.dart';
 
 class LargeAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -49,8 +49,8 @@ class LargeAppBar extends StatelessWidget implements PreferredSizeWidget {
         preferredSize:
             const Size.fromHeight(kToolbarHeight), // Height of the bottom line
         child: Container(
-          color: theme.colorScheme.surfaceTint, // Line color
-          height: 0.3, // Thickness of the line
+          color: theme.colorScheme.scrim, // Line color
+          height: 1, // Thickness of the line
         ),
       ),
     );

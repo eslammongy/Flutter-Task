@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/constants/utils/helper.dart';
-import 'package:flutter_task/home/widgets/ellipse_list_view.dart';
 import 'package:flutter_task/constants/theme/app_text_styles.dart';
+import 'package:flutter_task/home/widgets/items_card/ellipse_list_view.dart';
 
 class ExtraCardInfo extends StatelessWidget {
   const ExtraCardInfo({
@@ -43,10 +43,10 @@ class ExtraCardInfo extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        const Divider(
+        Divider(
           height: 2,
           thickness: 1,
-          color: Color(0xff262626),
+          color: theme.colorScheme.scrim,
         ),
         const SizedBox(
           height: 20,

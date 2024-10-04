@@ -14,9 +14,9 @@ IconButton buildSvgIconBtn({
 
 Container buildVerticalLine() {
   return Container(
-    height: 30, // Adjust the height based on design
-    width: 0.3, // Thin vertical line
-    color: Colors.white, // Line color
+    height: 25, // Adjust the height based on design
+    width: 1, // Thin vertical line
+    color: const Color(0xff262626), // Line color
     margin: const EdgeInsets.symmetric(horizontal: 16.0),
   );
 }

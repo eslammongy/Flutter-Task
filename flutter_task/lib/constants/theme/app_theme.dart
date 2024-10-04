@@ -27,6 +27,7 @@ class AppThemData {
     surfaceDim: Colors.white,
     surfaceTint: Color(0xff999999),
     onSurface: Color(0xFF070707),
+    scrim: Color(0xff262626),
     surfaceContainer: Color.fromARGB(255, 215, 215, 215),
     brightness: Brightness.light,
   );
@@ -43,6 +44,7 @@ class AppThemData {
     surfaceDim: Colors.white,
     surfaceTint: Color(0xff999999),
     surfaceContainer: Color(0xff171717),
+    scrim: Color(0xff262626),
     brightness: Brightness.dark,
   );
 }

@@ -1,5 +1,6 @@
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
-import '../../constants/utils/helper.dart';
+import '../../../constants/utils/helper.dart';
 import 'package:flutter_task/constants/app_assets.dart';
 
 class MobileAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -12,10 +13,18 @@ class MobileAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.black,
       titleSpacing: 0,
       title: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
+        padding: const EdgeInsets.only(
+          right: 16.0,
+        ),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            SvgPicture.asset(
+              AppAssets.logo,
+              height: 40,
+              fit: BoxFit.contain,
+            ),
             const Spacer(), // Space between logo and menu items
             buildSvgIconBtn(iconPath: AppAssets.settingIcon, onPressed: () {}),
 
@@ -33,9 +42,10 @@ class MobileAppBar extends StatelessWidget implements PreferredSizeWidget {
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(
             kToolbarHeight - 45), // Height of the bottom line
-        child: Container(
-          color: theme.colorScheme.surfaceTint, // Line color
-          height: 0.3, // Thickness of the line
+        child: Divider(
+          height: 1,
+          thickness: 1,
+          color: theme.colorScheme.scrim,
         ),
       ),
     );
